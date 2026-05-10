@@ -682,3 +682,30 @@ address { font-style: normal; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ═══════════════════════════════════════════════════
+   ANIMACIONES DE ENTRADA — animations.css
+   Agregar <link rel="stylesheet" href="animations.css">
+   justo antes del cierre de </head> en index.html
+═══════════════════════════════════════════════════ */
+
+/* Estado inicial (invisible, desplazado hacia abajo) */
+.anim--hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  .55s ease,
+    transform .55s ease;
+}
+
+/* Estado visible (activado por JS vía IntersectionObserver) */
+.anim--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeta preferencias del sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+  .anim--hidden  { opacity: 1; transform: none; }
+  .anim--visible { opacity: 1; transform: none; }
+}
