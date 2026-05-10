@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquear solo si usás CMS o panel admin en el futuro
+# Disallow: /admin/
+# Disallow: /wp-admin/
+
+Sitemap: https://www.estudiogarciaabogada.com.ar/sitemap.xml
