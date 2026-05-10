@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   ESTUDIO JURÍDICO DRA. PATRICIA GARCÍA — script.js
+   ESTUDIO JURÍDICO DRA. PATRICIA GARCÍA — main.js
 ═══════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
      3. HEADER — sombra al hacer scroll
   ───────────────────────────────────────────── */
   const header = document.querySelector('.header');
+  const HEADER_H = header ? header.offsetHeight : 64;
   if (header) {
     const onScroll = () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
@@ -98,9 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
 
       e.preventDefault();
-      const headerH = header ? header.offsetHeight : 0;
-      const top     = target.getBoundingClientRect().top + window.scrollY - headerH - 8;
-
+      const top = target.getBoundingClientRect().top + window.scrollY - HEADER_H - 8;
+      
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
