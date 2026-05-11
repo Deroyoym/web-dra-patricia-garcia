@@ -59,22 +59,22 @@
 }
 
 :root {
-  --color-primary:     #6b7c5a;   /* oliva medio cálido */
-  --color-primary-dk:  #4e5c41;   /* oliva oscuro */
-  --color-primary-lt:  #a0b08c;   /* oliva claro */
-  --color-primary-xs:  #e8ede3;   /* oliva muy suave (fondos) */
+  --color-primary:     #6b1f2a;
+  --color-primary-dk:  #4e1520;
+  --color-primary-lt:  #a05060;
+  --color-primary-xs:  #f5eaec;
 
-  --color-dark:        #2c2e28;   /* casi negro verdoso */
-  --color-dark-2:      #3a3d34;   /* gris-verde oscuro */
+  --color-dark:        #1e1a1b;
+  --color-dark-2:      #2e2224;
 
-  --color-cream:       #f7f3ec;   /* crema principal */
-  --color-cream-dk:    #ede7db;   /* crema más oscuro */
-  --color-accent:      #c9a96e;   /* dorado tierra suave */
-  --color-accent-lt:   #e8d5b0;   /* dorado muy claro */
+  --color-cream:       #f7f3ec;
+  --color-cream-dk:    #ede7db;
+  --color-accent:      #c9a96e;
+  --color-accent-lt:   #e8d5b0;
 
   --color-text:        #2e2e2a;
   --color-text-light:  #5c5c54;
-  --color-bg:          #f7f3ec;   /* crema como fondo base */
+  --color-bg:          #f7f3ec;
   --color-white:       #ffffff;
   --color-border:      #ddd7cc;
   --color-success:     #1a7a3f;
@@ -298,7 +298,7 @@ address { font-style: normal; }
   align-items: center;
   justify-content: center;
   padding: 6rem 1.5rem 3rem;
-  background: linear-gradient(160deg, #2c2e28 0%, #3a3d34 55%, #4e5c41 100%);
+  background: linear-gradient(160deg, #1e1a1b 0%, #2e2224 55%, #4e1520 100%);
   text-align: center;
   overflow: hidden;
 }
@@ -307,8 +307,8 @@ address { font-style: normal; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 65% 35%, rgba(107,124,90,.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(201,169,110,.10) 0%, transparent 55%);
+  radial-gradient(ellipse at 65% 35%, rgba(107,31,42,.30) 0%, transparent 60%),
+  radial-gradient(ellipse at 20% 80%, rgba(201,169,110,.10) 0%, transparent 55%);
 }
 
 .hero__content {
