@@ -360,6 +360,7 @@ address { font-style: normal; }
   text-align: center;
   max-width: 50ch;
   margin-inline: auto;
+  margin-top: 3.5rem;
 }
 
 .hero__eyebrow {
@@ -400,21 +401,46 @@ address { font-style: normal; }
 
 /* ── 380px: pantallas muy chicas ── */
 @media (max-width: 399px) {
-  .hero__title    { font-size: 1.9rem; }
-  .hero__estatua  { height: 55%; opacity: .35; right: -10%; }
-  .btn--large     { padding: .85rem 1.4rem; font-size: .9rem; }
+  .hero__content { margin-top: .5rem; }
+  .hero__title   { font-size: 1.9rem; }
+  .btn--large    { padding: .85rem 1.4rem; font-size: .9rem; }
+  
+  /* Ajuste de la estatua en modo relativo */
+  .hero__estatua { 
+    width: 140%; /* La hacemos un poco más ancha para que destaque */
+    margin-left: -20%; /* Compensamos para centrarla visualmente */
+    opacity: 0.7; 
+  }
 }
 
-/* ── 500px: teléfonos medianos ── */
-@media (min-width: 500px) {
-  .hero__estatua { height: 82%; opacity: .55; right: -4%; }
-}
+/* ── 900px: Layout de Escritorio (Desktop) ── */
+@media (min-width: 900px) {
+  .hero {
+    display: block; /* Volvemos al comportamiento normal por si acaso */
+  }
 
-/* ── 700px: tablet ── */
-@media (min-width: 700px) {
-  .hero__content  { text-align: left; margin-inline: 0; max-width: 46ch; }
-  .hero__subtitle { margin-inline: 0; }
-  .hero__estatua  { height: 88%; right: -2%; opacity: .7; max-width: 60%; }
+  .hero__content  { 
+    text-align: left; 
+    margin-inline: 0; 
+    max-width: 46ch; 
+  }
+  
+  .hero__subtitle { 
+    margin-inline: 0; 
+  }
+  
+  /* Devolvemos la estatua a su estado absoluto original para escritorio */
+  .hero__estatua  { 
+    position: absolute;
+    height: 88%; 
+    right: -2%; 
+    bottom: 0;
+    opacity: .7; 
+    max-width: 60%; 
+    width: auto; /* Reseteamos el width de la version móvil */
+    margin-left: 0;
+  }
+  
   .hero__velo {
     background:
       linear-gradient(to right,
@@ -427,14 +453,57 @@ address { font-style: normal; }
   }
 }
 
-/* ── 900px: desktop ── */
-@media (min-width: 900px) {
+/* Media query para tablets y móviles */
+@media (max-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* CRUCIAL: Mantiene a los absolutos dentro de esta sección */
+    overflow: hidden;
+  }
+
+  /* 1. Fondo y velo quedan anclados a toda la sección (fuera del flex) */
+  .hero__ilustracion,
+  .hero__velo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__ilustracion {
+    object-fit: cover;
+    z-index: 0; /* Al fondo del todo */
+  }
+
+  .hero__velo {
+    z-index: 1; /* Por encima de la ilustración */
+  }
+
+  /* 2. El contenido (texto y botones) va en la capa superior */
+  .hero__container {
+    position: relative;
+    z-index: 3; /* El texto tiene la máxima prioridad para leerse y hacer clic */
+    order: 1;
+  }
+
+  .hero__content {
+     text-align: center;
+     margin-inline: auto;
+     margin-top: .5rem;
+  }
+
+  /* 3. La estatua queda intercalada */
   .hero__estatua {
-    height: 95%;
-    right: 0%;
-    max-width: 52%;
-    opacity: .88;
-    filter: sepia(.28) drop-shadow(0 0 70px rgba(201,169,110,.28));
+    position: relative;
+    z-index: 2; /* Por encima del velo, pero por debajo o al mismo nivel que el texto */
+    order: 2;
+    width: 130%;
+    max-width: none;
+    margin-left: -15%;
+    height: auto;
+    bottom: -50px; 
   }
   .hero__velo {
     background:
